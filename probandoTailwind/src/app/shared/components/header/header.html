@@ -1,0 +1,42 @@
+<header class="bg-white shadow-md fixed w-full top-0 left-0 z-50">
+  <div class="container mx-auto flex items-center justify-between px-6 py-4">
+    <!-- Logo -->
+    <!-- <a href="/" class="text-2xl font-bold text-blue-600">MiLogo</a> -->
+    <div class="flex items-center space-x-2">
+  <!-- Logo -->
+  <img src="assets/logo.png" alt="Logo" class="h-8 w-8">
+
+  <!-- Nombre -->
+  <span class="text-2xl font-bold text-blue-600">Narices Frias</span>
+</div>
+    <!-- Menú Desktop -->
+    <nav class="hidden md:flex space-x-6">
+      <a href="#" class="text-gray-700 hover:text-blue-600 transition">Inicio</a>
+      <a href="/alimentos" class="text-gray-700 hover:text-blue-600 transition">Productos</a>
+      <a href="#" class="text-gray-700 hover:text-blue-600 transition">Nosotros</a>
+      <a href="#" class="text-gray-700 hover:text-blue-600 transition">Contacto</a>
+    </nav>
+
+    <!-- Botón hamburguesa Mobile -->
+    <button (click)="toggleMenu()" class="md:hidden text-gray-700 focus:outline-none">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none"
+           viewBox="0 0 24 24" stroke="currentColor">
+        <path *ngIf="!isOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"/>
+        <path *ngIf="isOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Menú Mobile -->
+  <div *ngIf="isOpen" class="md:hidden bg-white shadow-md">
+    <nav class="flex flex-col space-y-2 p-4">
+      <a href="#" class="text-gray-700 hover:text-blue-600 transition">Inicio</a>
+      <a href="#" class="text-gray-700 hover:text-blue-600 transition">Servicios</a>
+      <a href="#" class="text-gray-700 hover:text-blue-600 transition">Nosotros</a>
+      <a href="#" class="text-gray-700 hover:text-blue-600 transition">Contacto</a>
+    </nav>
+  </div>
+</header>
+

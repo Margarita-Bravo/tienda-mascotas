@@ -1,0 +1,56 @@
+<section class="py-12 bg-gray-100 min-h-screen">
+
+  
+
+  <div class="container mx-auto px-6">
+
+
+    <!-- Botón volver -->
+    <div class="mb-6">
+      <button (click)="volver()"
+              class="px-4 py-2 rounded-lg font-bold text-white hover:opacity-90 transition"
+              style="background: linear-gradient(to right, #80E1BA, #45D1A0, #48CEA8);">
+        ← Volver
+      </button>
+    </div>
+
+    <h2 class="text-3xl font-bold text-center mb-12">Alimentos</h2>
+
+    <!-- Grid con hasta 4 columnas -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+     <div *ngFor="let producto of productos" 
+     class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col">
+
+  <!-- Imagen del producto -->
+  <img [src]="producto.imagen" [alt]="producto.nombre" 
+       class="w-full h-48 object-contain ">
+
+  <!-- Contenido debajo de la imagen -->
+  <div class="p-4 flex flex-col justify-between flex-grow min-h-[180px]">
+    <!-- Marca como título principal -->
+    <h3 class="text-xl font-bold mb-2 text-gray-900 uppercase tracking-wide">
+      {{ producto.marca }}
+    </h3>
+
+    <!-- Nombre y descripción -->
+    <div>
+      <h4 class="text-lg font-semibold mb-1 text-gray-800">{{ producto.nombre }}</h4>
+      <!-- <p class="text-gray-600 mb-4 text-sm">{{ producto.descripcion }}</p> -->
+    </div>
+
+    <!-- Precio -->
+    <p class="text-lg font-semibold mb-4 text-green-600">${{ producto.precio }}</p>
+
+    <!-- Botón -->
+    <button [routerLink]="['/detalle-producto', producto.productoId]" 
+            class="text-white px-4 py-2 rounded-lg font-bold hover:opacity-90 transition"
+            style="background: linear-gradient(to right, #80E1BA, #45D1A0, #48CEA8);">
+      Ver Detalle
+    </button>
+  </div>
+
+</div>
+
+    </div>
+  </div>
+</section>
