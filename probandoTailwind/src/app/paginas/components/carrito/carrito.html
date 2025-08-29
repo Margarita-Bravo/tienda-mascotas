@@ -1,0 +1,25 @@
+<div class="bg-white border rounded shadow-lg w-80 p-4">
+  <h3 class="text-lg font-bold mb-2">Tu Carrito</h3>
+
+  <div *ngIf="items.length === 0" class="text-gray-500">
+    No hay productos en el carrito.
+  </div>
+
+  <div *ngFor="let item of items" class="flex justify-between items-center mb-2">
+    <div>
+      <p class="font-medium">{{ item.producto.nombre }}</p>
+      <p class="text-sm text-gray-500">Cantidad: {{ item.cantidad }}</p>
+    </div>
+    <button (click)="eliminar(item)" class="text-red-500 hover:font-bold">&times;</button>
+  </div>
+
+  <div class="flex justify-between mt-4">
+    <button (click)="seguirComprando()"  class="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300">Seguir comprando</button>
+    <button (click)="limpiar()" class="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600">Vaciar</button>
+  </div>
+
+  <button (click)="abonar()" class="w-full mt-3 px-3 py-2 bg-green-600 text-white rounded hover:bg-green-700">
+    Abonar
+  </button>
+</div>
+

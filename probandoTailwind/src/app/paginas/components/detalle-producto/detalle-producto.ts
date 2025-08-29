@@ -4,6 +4,7 @@ import { ActivatedRoute, RouterLink, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ProductoModelo } from '../../../modelos/productoModelo';
 import { ProductosService } from '../../../servicios/productos.service';
+import { CarritoService } from '../../../servicios/carrito.service';
 
 @Component({
   selector: 'app-detalle-producto',
@@ -16,16 +17,26 @@ export class DetalleProducto {
   producto!: ProductoModelo;
   cantidad: number = 1;
 
-  constructor(private route: ActivatedRoute,
-              private productosService: ProductosService) {
+  constructor(private route: ActivatedRoute,private productosService: ProductosService, private carritoService: CarritoService) {
+
     const id = Number(this.route.snapshot.paramMap.get('id'));
     const encontrado = this.productosService.obtenerProductoPorId(id);
     if (encontrado) this.producto = encontrado;
   }
 
-  aumentarCantidad() { this.cantidad++; }
-  disminuirCantidad() { if (this.cantidad > 1) this.cantidad--; }
-  agregarAlCarrito() { console.log('Producto agregado:', this.producto, 'Cantidad:', this.cantidad); }
+  aumentarCantidad() {
+     this.cantidad++; 
+    }
+
+  disminuirCantidad() {
+     if (this.cantidad > 1) 
+      this.cantidad--; 
+    }
+    
+  agregarAlCarrito() { 
+    this.carritoService.agregarAlCarrito(this.producto, this.cantidad);
+    console.log('Producto agregado:', this.producto, 'Cantidad:', this.cantidad); 
+  }
 }
 
 

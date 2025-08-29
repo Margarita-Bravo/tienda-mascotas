@@ -1,42 +1,77 @@
 <header class="bg-white shadow-md fixed w-full top-0 left-0 z-50">
   <div class="container mx-auto flex items-center justify-between px-6 py-4">
-    <!-- Logo -->
-    <!-- <a href="/" class="text-2xl font-bold text-blue-600">MiLogo</a> -->
-    <div class="flex items-center space-x-2">
-  <!-- Logo -->
-  <img src="assets/logo.png" alt="Logo" class="h-8 w-8">
 
-  <!-- Nombre -->
-  <span class="text-2xl font-bold text-blue-600">Narices Frias</span>
-</div>
-    <!-- Menú Desktop -->
+
+    <div class="flex items-center space-x-2">
+      <!-- Logo -->
+      <img src="assets/logo.png" alt="Logo" class="h-8 w-8">
+
+
+      <span class="text-2xl font-bold text-blue-600">Narices Frias</span>
+    </div>
+    <!-- menu -->
     <nav class="hidden md:flex space-x-6">
-      <a href="#" class="text-gray-700 hover:text-blue-600 transition">Inicio</a>
-      <a href="/alimentos" class="text-gray-700 hover:text-blue-600 transition">Productos</a>
-      <a href="#" class="text-gray-700 hover:text-blue-600 transition">Nosotros</a>
-      <a href="#" class="text-gray-700 hover:text-blue-600 transition">Contacto</a>
+      <a  routerLink="" class="text-gray-700 hover:text-green-600 hover:font-bold transition">Inicio</a>
+      <a  routerLink="/" fragment="productos"  class="text-gray-700 hover:text-green-600 hover:font-bold transition">Productos</a>
+     
+      <!-- <a href="#" class="text-gray-700 hover:text-green-600 hover:font-bold transition">Contacto</a> -->
+
+      
+
+      <!-- ver carrito y perfil  si esta logueado -->
+      <div class="relative" (click)="toggleCarritoMenu()">
+  <a class="flex items-center text-gray-700 hover:text-green-600 transition">
+    <svg class="h-5 w-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.5 7h13L17 13M7 13l-4-8m0 0h16m-4 0v0"/>
+    </svg>
+    <span class="ml-1">{{ carritoCantidad }}</span>
+  </a>
+
+  <div *ngIf="carritoMenuOpen" class="absolute right-0 mt-2 z-50">
+    <app-carrito></app-carrito>
+  </div>
+
+        <!-- perfil con menu -->
+        <!-- <div class="relative" (click)="togglePerfilMenu()">
+          <button class="flex items-center text-gray-700 hover:text-green-600 transition">
+            Perfil
+            <svg class="h-4 w-4 ml-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd"d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.27a.75.75 0 01.02-1.06z"clip-rule="evenodd" />
+            </svg>
+          </button>
+
+          <div *ngIf="perfilMenuOpen" class="absolute right-0 mt-2 w-40 bg-white border rounded shadow-lg z-50">
+            <a routerLink="/perfil" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Mi Perfil</a>
+            <button (click)="logout()" class="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100">
+              Cerrar sesión
+            </button>
+          </div>
+        </div> -->
+      </div>
+
+      <a *ngIf="!isLoggedIn()" routerLink="/login" class="text-gray-700 hover:text-green-600 hover:font-bold transition">
+        Login
+      </a>
+
     </nav>
 
-    <!-- Botón hamburguesa Mobile -->
+    <!-- hamburguesa en caso de celular -->
     <button (click)="toggleMenu()" class="md:hidden text-gray-700 focus:outline-none">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none"
-           viewBox="0 0 24 24" stroke="currentColor">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path *ngIf="!isOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"/>
-        <path *ngIf="isOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M6 18L18 6M6 6l12 12"/>
+          d="M4 6h16M4 12h16M4 18h16" />
+        <path *ngIf="isOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
       </svg>
     </button>
   </div>
 
-  <!-- Menú Mobile -->
+  <!-- Menu para celular -->
   <div *ngIf="isOpen" class="md:hidden bg-white shadow-md">
     <nav class="flex flex-col space-y-2 p-4">
       <a href="#" class="text-gray-700 hover:text-blue-600 transition">Inicio</a>
       <a href="#" class="text-gray-700 hover:text-blue-600 transition">Servicios</a>
-      <a href="#" class="text-gray-700 hover:text-blue-600 transition">Nosotros</a>
+      <!-- <a href="#" class="text-gray-700 hover:text-blue-600 transition">Nosotros</a> -->
       <a href="#" class="text-gray-700 hover:text-blue-600 transition">Contacto</a>
     </nav>
   </div>
 </header>
-

@@ -13,7 +13,7 @@ export class ProductosService {
       nombre: 'Comida para perro adulto',
       descripcion: 'Alimento balanceado para perros adultos.',
       imagen: '/assets/alimentos/ali-perro.png',
-      precio:'11500',
+      precio:11500,
       marca:'Excellent',
     },
     {
@@ -21,7 +21,7 @@ export class ProductosService {
       nombre: 'Comida para gato',
       descripcion: 'Alimento premium para gatos.',
       imagen: '/assets/alimentos/ali-gato.png',
-      precio:'25852',
+      precio:25852,
       marca:'Sieger',
       
     },
@@ -30,7 +30,7 @@ export class ProductosService {
       nombre: 'Snack saludable',
       descripcion: 'Snack natural para mascotas.',
       imagen: '/assets/alimentos/ali-snack.png',
-      precio:'3500',
+      precio:3500,
       marca:'Mon Ami',
     },
     {
@@ -38,7 +38,7 @@ export class ProductosService {
       nombre: 'Comida para aves',
       descripcion: 'Alimento proteico y energético.',
       imagen: '/assets/alimentos/ali-aves.png',
-      precio:'11250',
+      precio:11250,
       marca:'Exzootix',
     },
      {
@@ -46,7 +46,7 @@ export class ProductosService {
       nombre: 'Comida para conejos, cobayos, chinchilla, hamster',
       descripcion: 'Heno para roedores, calidad premium.',
       imagen: '/assets/alimentos/ali-conejo.png',
-      precio:'15840',
+      precio:15840,
       marca:'Timothy',
     },
       {
@@ -54,7 +54,7 @@ export class ProductosService {
       nombre: 'Comida para peces',
       descripcion: 'Alimento en escamas para peces de agua fria.',
       imagen: '/assets/alimentos/ali-pez.png',
-      precio:'17325',
+      precio:17325,
       marca:'Shulet',
     },
       {
@@ -62,7 +62,7 @@ export class ProductosService {
       nombre: 'Comida para tortugas',
       descripcion: 'Alimento deshidratado, de origen vegetal, para nutrición de tortugas y otros reptiles.',
       imagen: '/assets/alimentos/ali-tortuga.png',
-      precio:'16200',
+      precio:16200,
       marca:'Zootec',
     },
      {
@@ -70,20 +70,20 @@ export class ProductosService {
       nombre: 'Comida para gallinas, patos, ganzos, pavos',
       descripcion: 'Alimento completo de alta calidad formulado para satisfacer las necesidades nutricionales de una bandada de aves de corral mixta.',
       imagen: '/assets/alimentos/ali-pollos.png',
-      precio:'45800',
+      precio:45800,
       marca:'All Flock ',
     },
-    // agregá más productos aquí
+    
   ];
 
   constructor() {}
 
-  // Devuelve todos los productos
+  //todos los productos
   obtenerProductos(): ProductoModelo[] {
     return this.productos;
   }
 
-  // Devuelve un producto por id
+  //un producto por id
   obtenerProductoPorId(id: number): ProductoModelo | undefined {
     return this.productos.find(p => p.productoId === id);
   }

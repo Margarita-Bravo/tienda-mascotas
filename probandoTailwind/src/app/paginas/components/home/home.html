@@ -10,7 +10,7 @@
     <p class="text-lg md:text-2xl text-white mb-6">
       Encuentra alimentos, juguetes y accesorios para tu mejor amigo
     </p>
-    <button class="text-white px-6 py-3 rounded-lg font-bold hover:opacity-90 transition" 
+    <button routerLink="/" fragment="productos" class="text-white px-6 py-3 rounded-lg font-bold hover:opacity-90 transition" 
         style="background: linear-gradient(to right, #80E1BA, #45D1A0, #48CEA8);">
       Ver Productos
     </button>
@@ -20,14 +20,13 @@
 
 
 
-<!-- Sección de productos o información adicional -->
-<!-- Sección de productos o información adicional -->
-<section class="py-12 bg-gray-100">
+
+<section id="productos" class="py-12 bg-gray-100">
   <div class="container mx-auto px-6">
     <h2 class="text-3xl font-bold text-center mb-12">Nuestros Productos</h2>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <!-- Tarjeta 1: Alimentos -->
+      <!-- card de alimentos -->
       <div class="relative h-64 rounded-lg overflow-hidden shadow-lg group">
         <img src="/assets/hamster-comiendo.png" alt="Alimentos" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/40 to-transparent flex flex-col items-center justify-center text-center text-white p-4">
@@ -41,7 +40,7 @@
         </div>
       </div>
 
-      <!-- Tarjeta 2: Juguetes -->
+      <!-- card de juguetes -->
       <div class="relative h-64 rounded-lg overflow-hidden shadow-lg group">
         <img src="/assets/gato-juego.png" alt="Juguetes" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/40 to-transparent flex flex-col items-center justify-center text-center text-white p-4">
@@ -55,7 +54,7 @@
         </div>
       </div>
 
-      <!-- Tarjeta 3: Accesorios -->
+      <!-- card de accesorios -->
       <div class="relative h-64 rounded-lg overflow-hidden shadow-lg group">
         <img src="/assets/tor-sombrero.png" alt="Accesorios" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/40 to-transparent flex flex-col items-center justify-center text-center text-white p-4">

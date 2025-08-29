@@ -3,6 +3,6 @@ export interface ProductoModelo {
   nombre: string;
   descripcion?: string;
   imagen: string;
-  precio:string;
+  precio:number;
   marca:string;
 }
