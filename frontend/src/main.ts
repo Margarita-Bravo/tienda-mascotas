@@ -7,6 +7,7 @@ import { DetalleProducto } from './app/paginas/components/detalle-producto/detal
 import { Registro } from './app/paginas/components/registro/registro';
 import { Login } from './app/paginas/components/login/login';
 import { Pago } from './app/paginas/components/pago/pago';
+import { Veterinaria } from './app/paginas/components/veterinaria/veterinaria';
 
 
 bootstrapApplication(App, {
@@ -15,14 +16,15 @@ bootstrapApplication(App, {
       [
         { path: '', component: Home },
         { path: 'alimentos', component: Alimentos },
-        {path:'detalle-producto/:id',component:DetalleProducto},
+        { path: 'detalle-producto/:id', component: DetalleProducto },
         { path: 'registro', component: Registro },
-          { path: 'login', component: Login },
-          { path: 'pago', component: Pago },
+        { path: 'login', component: Login },
+        { path: 'pago', component: Pago },
+        { path: 'veterinaria', component: Veterinaria },
       ],
       withEnabledBlockingInitialNavigation(),
       withInMemoryScrolling({
-        anchorScrolling: 'enabled',  
+        anchorScrolling: 'enabled',
         scrollPositionRestoration: 'enabled'
       })
     )

@@ -1,0 +1,126 @@
+<div class="max-w-lg mx-auto bg-white rounded-lg shadow-lg p-6 mt-6">
+  <h2 class="text-2xl font-bold mb-4 text-center">Finalizar Compra</h2>
+
+  <!-- Total -->
+  <p class="text-lg font-semibold mb-6 text-center">
+    Total a pagar: ${{ totalCompra }}
+  </p>
+
+  <!-- DATOS DEL CLIENTE -->
+  <div class="mb-6">
+    <h3 class="text-lg font-semibold mb-3">Datos personales</h3>
+    <input [(ngModel)]="form.nombre" type="text" placeholder="Nombre completo"
+      class="w-full mb-3 px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-400 focus:outline-none"/>
+
+    <input [(ngModel)]="form.email" type="email" placeholder="Correo electrónico"
+      class="w-full mb-3 px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-400 focus:outline-none"/>
+
+    <input [(ngModel)]="form.telefono" type="tel" placeholder="Teléfono"
+      class="w-full mb-3 px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-400 focus:outline-none"/>
+  </div>
+
+  <!-- DIRECCIÓN -->
+  <div class="mb-6">
+    <h3 class="text-lg font-semibold mb-3">Dirección de envío</h3>
+    <input [(ngModel)]="form.direccion" type="text" placeholder="Calle y número"
+      class="w-full mb-3 px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-400 focus:outline-none"/>
+
+    <input [(ngModel)]="form.direccion" type="text" placeholder="Ciudad"
+      class="w-full mb-3 px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-400 focus:outline-none"/>
+
+    <input [(ngModel)]="form.cp" type="text" placeholder="Código Postal"
+      class="w-full mb-3 px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-400 focus:outline-none"/>
+  </div>
+
+  <!-- ENVÍO O RETIRO -->
+  <div class="mb-6">
+    <h3 class="text-lg font-semibold mb-3">Entrega</h3>
+    <div class="flex gap-4">
+      <label class="flex items-center space-x-2 cursor-pointer">
+        <input type="radio" [(ngModel)]="form.entrega" value="envio" class="text-green-500 focus:ring-green-400"/>
+        <span>Envío a domicilio</span>
+      </label>
+      <label class="flex items-center space-x-2 cursor-pointer">
+        <input type="radio" [(ngModel)]="form.entrega" value="retiro" class="text-green-500 focus:ring-green-400"/>
+        <span>Retiro en el local</span>
+      </label>
+    </div>
+  </div>
+
+  <!-- MÉTODO DE PAGO -->
+  <h3 class="text-lg font-semibold mb-3">Método de pago</h3>
+  <div class="flex justify-center gap-4 mb-6">
+    <button (click)="seleccionarMetodo('tarjeta')" 
+            [class.bg-green-500]="metodo==='tarjeta'" 
+            class="text-white px-6 py-3 rounded-lg font-bold hover:opacity-50 transition" 
+            style="background: linear-gradient(to right, #80E1BA, #45D1A0, #48CEA8);">
+      Tarjeta
+    </button>
+    <button (click)="seleccionarMetodo('transferencia')" 
+            [class.bg-green-500]="metodo==='transferencia'" 
+            class="text-white px-6 py-3 rounded-lg font-bold hover:opacity-50 transition" 
+            style="background: linear-gradient(to right, #80E1BA, #45D1A0, #48CEA8);">
+      Transferencia
+    </button>
+  </div>
+
+  <!-- FORM TARJETA -->
+  <div *ngIf="metodo==='tarjeta'" class="relative bg-gradient-to-r from-amber-300 to-orange-500 text-white p-6 rounded-xl shadow-lg max-w-md mx-auto">
+    <input [(ngModel)]="numeroTarjeta" type="text" placeholder="#### #### #### ####"
+      class="w-full mb-4 px-4 py-3 rounded-lg text-lg font-mono placeholder-white bg-white/20 focus:bg-white/30 focus:outline-none"/>
+    <input [(ngModel)]="titular" type="text" placeholder="Nombre del titular"
+      class="w-full mb-4 px-4 py-3 rounded-lg text-lg placeholder-white bg-white/20 focus:bg-white/30 focus:outline-none"/>
+    <div class="flex gap-2">
+      <input [(ngModel)]="vencimiento" type="text" placeholder="MM/AA"
+        class="flex-1 px-4 py-3 rounded-lg text-lg placeholder-white bg-white/20 focus:bg-white/30 focus:outline-none"/>
+      <input [(ngModel)]="cvv" type="text" placeholder="CVV"
+        class="w-24 px-4 py-3 rounded-lg text-lg placeholder-white bg-white/20 focus:bg-white/30 focus:outline-none"/>
+    </div>
+  </div>
+
+  <!-- TRANSFERENCIA -->
+  <div *ngIf="metodo==='transferencia'" class="mb-4 text-center">
+    <p class="text-gray-700">Por favor realiza la transferencia a la cuenta <strong>XXXX-XXXX</strong> y confirma el pago.</p>
+  </div>
+
+  <!-- BOTONES -->
+  <div class="mt-4 text-center">
+    <button (click)="procesarPago()" 
+            [disabled]="procesando || pagoProcesado" 
+            class="text-white px-6 py-3 rounded-lg font-bold hover:opacity-50 transition" 
+            style="background: linear-gradient(to right, #80E1BA, #45D1A0, #48CEA8);">
+      {{ procesando ? 'Procesando...' : pagoProcesado ? 'Pagado' : 'Pagar' }}
+    </button>
+  </div>
+</div>
+
+
+<!-- Modal de confirmación -->
+<div *ngIf="pagoProcesado" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+  <div class="bg-white rounded-2xl shadow-lg p-8 max-w-md w-full text-center relative animate-fadeIn">
+
+    <!-- Botón de cerrar -->
+    <button (click)="cerrarModal()" class="absolute top-3 right-3 text-gray-500 hover:text-gray-800 text-xl">
+      ✕
+    </button>
+
+    <!-- Imagen de éxito -->
+    <img src="assets/felices-los-cuatro.png" alt="Pago exitoso" class="mx-auto mb-4 w-24 h-24 animate-bounce">
+
+    <!-- Título -->
+    <h2 class="text-2xl font-bold text-green-600 mb-2">¡Pago exitoso! 🎉</h2>
+
+    <!-- Mensaje -->
+    <p class="text-gray-700 mb-6">
+      Tu pago fue procesado correctamente.<br>
+      ¡Tu producto llegará muy pronto a tu domicilio!
+    </p>
+
+    <!-- Botón continuar -->
+    <button (click)="cerrarModal()"
+      class="text-white px-6 py-3 rounded-lg font-bold hover:opacity-50 transition" style="background: linear-gradient(to right, #80E1BA, #45D1A0, #48CEA8);">
+      Seguir comprando
+    </button>
+  </div>
+</div>
+

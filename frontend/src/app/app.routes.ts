@@ -5,6 +5,7 @@ import { DetalleProducto } from './paginas/components/detalle-producto/detalle-p
 import { Registro } from './paginas/components/registro/registro';
 import { Login } from './paginas/components/login/login';
 import { Pago } from './paginas/components/pago/pago';
+import { Veterinaria } from './paginas/components/veterinaria/veterinaria';
 
 export const routes: Routes = [
     { path: '', component: Home },
@@ -13,4 +14,5 @@ export const routes: Routes = [
   { path: 'registro', component: Registro },
   { path: 'login', component: Login },
   { path: 'pago', component: Pago },
+  { path: 'veterinaria', component: Veterinaria },
 ];

@@ -15,15 +15,33 @@ import { CarritoService } from '../../../servicios/carrito.service';
 export class Pago {
   metodo: 'tarjeta' | 'transferencia' | null = null;
   pagoProcesado = false;
-procesando = false;
+  procesando = false;
+  mostrarModal = false;
 
   
-  numeroTarjeta = '';
+  
+  numeroTarjeta = ''; 
   titular = '';
   vencimiento = '';
   cvv = '';
 
+  form = {
+    nombre: '',
+    email: '',
+    telefono: '',
+    direccion: '',
+    entrega: '',
+    cp:'',
+  };
+  compraConfirmada = false;
+
+
   constructor(public carritoService: CarritoService,private router: Router) {}
+
+   confirmarCompra() {
+    console.log('Datos del cliente:', this.form);
+    this.compraConfirmada = true;
+  }
 
   get totalCompra(): number {
     return this.carritoService.obtenerItems()
@@ -47,6 +65,7 @@ procesando = false;
     setTimeout(() => {
       this.pagoProcesado = true;
       this.procesando = false;
+      this.mostrarModal = true;
       this.carritoService.limpiarCarrito();
     }, 1500);
   }
@@ -58,6 +77,13 @@ procesando = false;
     this.titular = '';
     this.vencimiento = '';
     this.cvv = '';
+    this.router.navigate(['']);
+  }
+
+   cerrarModal() {
+    this.mostrarModal = false;
+    this.pagoProcesado = false;
+    this.metodo = null; 
     this.router.navigate(['']);
   }
 }
