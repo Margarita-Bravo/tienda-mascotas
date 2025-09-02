@@ -8,6 +8,8 @@ import { Registro } from './app/paginas/components/registro/registro';
 import { Login } from './app/paginas/components/login/login';
 import { Pago } from './app/paginas/components/pago/pago';
 import { Veterinaria } from './app/paginas/components/veterinaria/veterinaria';
+import { Aseo } from './app/paginas/components/aseo/aseo';
+import { Adopcion } from './app/paginas/components/adopcion/adopcion';
 
 
 bootstrapApplication(App, {
@@ -21,6 +23,8 @@ bootstrapApplication(App, {
         { path: 'login', component: Login },
         { path: 'pago', component: Pago },
         { path: 'veterinaria', component: Veterinaria },
+        { path: 'aseo', component: Aseo },
+        { path: 'adopcion', component: Adopcion },
       ],
       withEnabledBlockingInitialNavigation(),
       withInMemoryScrolling({

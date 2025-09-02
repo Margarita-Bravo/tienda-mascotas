@@ -80,24 +80,28 @@
 
 <!-- banner -->
 
-<section class="w-full flex items-center justify-center  py-12 md:py-24">
-  <!-- Imagen de fondo -->
+<section class="w-full flex items-center justify-center py-12 md:py-24">
   <div class="relative w-full">
+    <!-- Imagen -->
     <img src="/assets/fila.png"
          alt="Conciencia animal"
-         class="w-full h-auto mx-auto object-contain rounded-lg shadow-lg">
+         class="w-full h-auto mx-auto object-contain rounded-2xl shadow-xl">
 
-    <!-- Texto sobre la imagen -->
+    <!-- Overlay oscuro sutil -->
+    <div class="absolute inset-0 bg-black/40 rounded-2xl"></div>
+
+    <!-- Texto centrado -->
     <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
-      <h2 class="text-3xl md:text-5xl font-bold text-white mb-4 drop-shadow-lg">
+      <h2 class="text-3xl md:text-5xl font-bold text-white tracking-wide mb-6 drop-shadow-md">
         "Ama, cuida y respeta a quienes te dan amor incondicional 🐾"
       </h2>
-      <p class="text-lg md:text-2xl text-white drop-shadow-md">
+      <p class="text-lg md:text-2xl text-gray-100 drop-shadow-sm max-w-2xl">
         Adoptar, cuidar y proteger a nuestras mascotas es responsabilidad de todos.
       </p>
     </div>
   </div>
 </section>
+
 <!-- fin banner -->
 
 
@@ -120,6 +124,8 @@
           class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/40 to-transparent flex flex-col items-center justify-center text-center text-white p-4">
           <h3 class="text-2xl font-bold mb-2 drop-shadow-lg">Veterinaria</h3>
           <p class="mb-4 drop-shadow-md">Cuidado médico profesional para tus mascotas.</p>
+          
+
           <button routerLink="/veterinaria" class="text-white px-6 py-3 rounded-lg font-bold hover:opacity-90 transition"
             style="background: linear-gradient(to right, #80E1BA, #45D1A0, #48CEA8);">
             Ver Servicios
@@ -127,6 +133,9 @@
         </div>
       </div>
 
+
+
+      
       <!-- Baño y Aseo -->
       <div class="relative rounded-lg overflow-hidden shadow-lg group aspect-w-4 aspect-h-3">
         <img src="/assets/servicios/pulgo.png" alt="Baño y Aseo"
@@ -135,12 +144,17 @@
           class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/40 to-transparent flex flex-col items-center justify-center text-center text-white p-4">
           <h3 class="text-2xl font-bold mb-2 drop-shadow-lg">Baño y Aseo</h3>
           <p class="mb-4 drop-shadow-md">Mantén a tus mascotas limpias y saludables.</p>
-          <button routerLink="/bano-aseo" class="text-white px-6 py-3 rounded-lg font-bold hover:opacity-90 transition"
+
+                
+          <button routerLink="/aseo" class="text-white px-6 py-3 rounded-lg font-bold hover:opacity-90 transition"
             style="background: linear-gradient(to right, #80E1BA, #45D1A0, #48CEA8);">
             Ver Servicios
           </button>
         </div>
       </div>
+
+
+
 
       <!-- Adopciones -->
       <div class="relative rounded-lg overflow-hidden shadow-lg group aspect-w-4 aspect-h-3">
@@ -150,7 +164,7 @@
           class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/40 to-transparent flex flex-col items-center justify-center text-center text-white p-4">
           <h3 class="text-2xl font-bold mb-2 drop-shadow-lg">Adopciones</h3>
           <p class="mb-4 drop-shadow-md">Dale un hogar amoroso a una mascota que lo necesita.</p>
-          <button routerLink="/adopciones" class="text-white px-6 py-3 rounded-lg font-bold hover:opacity-90 transition"
+          <button routerLink="/adopcion" class="text-white px-6 py-3 rounded-lg font-bold hover:opacity-90 transition"
             style="background: linear-gradient(to right, #80E1BA, #45D1A0, #48CEA8);">
             Ver Adopciones
           </button>
