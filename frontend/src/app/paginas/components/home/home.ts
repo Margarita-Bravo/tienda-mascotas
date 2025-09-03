@@ -6,7 +6,7 @@ import { Chat } from '../chat/chat';
 
 @Component({
   selector: 'app-home',
-   standalone: true,
+  standalone: true,
   imports: [CommonModule, RouterModule,Chat],
   templateUrl: './home.html',
   styleUrl: './home.css'

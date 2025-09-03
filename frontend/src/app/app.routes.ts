@@ -8,6 +8,7 @@ import { Pago } from './paginas/components/pago/pago';
 import { Veterinaria } from './paginas/components/veterinaria/veterinaria';
 import { Aseo } from './paginas/components/aseo/aseo';
 import { Adopcion } from './paginas/components/adopcion/adopcion';
+import { Contacto } from './paginas/components/contacto/contacto';
 
 export const routes: Routes = [
   { path: '', component: Home },
@@ -19,4 +20,5 @@ export const routes: Routes = [
   { path: 'veterinaria', component: Veterinaria },
   { path: 'aseo', component: Aseo },
   { path: 'adopcion', component: Adopcion },
+  { path: 'contacto', component: Contacto },
 ];

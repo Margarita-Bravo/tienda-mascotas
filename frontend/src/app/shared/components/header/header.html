@@ -7,30 +7,31 @@
       <img src="assets/logo.png" alt="Logo" class="h-8 w-8">
 
 
-      <span class="text-2xl font-bold text-blue-600">Narices Frias</span>
+      <span class="text-2xl font-bold text-dark-600">Narices Frias</span>
     </div>
     <!-- menu -->
     <nav class="hidden md:flex space-x-6">
-      <a  routerLink="" class="text-gray-700 hover:text-green-600 hover:font-bold transition">Inicio</a>
-      <a  routerLink="/" fragment="productos"  class="text-gray-700 hover:text-green-600 hover:font-bold transition">Productos</a>
-     
+      <a routerLink="" class="text-gray-700 hover:text-green-600 hover:font-bold transition">Inicio</a>
+      <a routerLink="/" fragment="productos" class="text-gray-700 hover:text-green-600 hover:font-bold transition">Productos</a>
+       <a routerLink="/" fragment="servicios" class="text-gray-700 hover:text-green-600 hover:font-bold transition">Servicios</a>
+
       <!-- <a href="#" class="text-gray-700 hover:text-green-600 hover:font-bold transition">Contacto</a> -->
 
-      
+
 
       <!-- ver carrito y perfil  si esta logueado -->
       <div class="relative" (click)="toggleCarritoMenu()">
-  <a class="flex items-center text-gray-700 hover:text-green-600 transition">
-    <svg class="h-5 w-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.5 7h13L17 13M7 13l-4-8m0 0h16m-4 0v0"/>
-    </svg>
-    <span class="ml-1">{{ carritoCantidad }}</span>
-  </a>
+        <a class="flex items-center text-gray-700 hover:text-green-600 transition">
+          <svg class="h-5 w-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.5 7h13L17 13M7 13l-4-8m0 0h16m-4 0v0" />
+          </svg>
+          <span class="ml-1">{{ carritoCantidad }}</span>
+        </a>
 
-  <div *ngIf="carritoMenuOpen" class="absolute right-0 mt-2 z-50">
-    <app-carrito></app-carrito>
-  </div>
+        <div *ngIf="carritoMenuOpen" class="absolute right-0 mt-2 z-50">
+          <app-carrito></app-carrito>
+        </div>
 
         <!-- perfil con menu -->
         <!-- <div class="relative" (click)="togglePerfilMenu()">
@@ -49,7 +50,8 @@
         </div> -->
       </div>
 
-      <a *ngIf="!isLoggedIn()" routerLink="/login" class="text-gray-700 hover:text-green-600 hover:font-bold transition">
+      <a *ngIf="!isLoggedIn()" routerLink="/login"
+        class="text-gray-700 hover:text-green-600 hover:font-bold transition">
         Login
       </a>
 
@@ -69,9 +71,28 @@
   <div *ngIf="isOpen" class="md:hidden bg-white shadow-md">
     <nav class="flex flex-col space-y-2 p-4">
       <a href="#" class="text-gray-700 hover:text-blue-600 transition">Inicio</a>
-      <a href="#" class="text-gray-700 hover:text-blue-600 transition">Servicios</a>
+      <a  routerLink="/" fragment="productos"class="text-gray-700 hover:text-blue-600 transition">Productos</a>
+      <a  routerLink="/" fragment="servicios"class="text-gray-700 hover:text-blue-600 transition">Servicios</a>
       <!-- <a href="#" class="text-gray-700 hover:text-blue-600 transition">Nosotros</a> -->
-      <a href="#" class="text-gray-700 hover:text-blue-600 transition">Contacto</a>
+      <div class="relative" (click)="toggleCarritoMenu()">
+      <a class="flex items-center text-gray-700 hover:text-blue-600 transition">
+        <svg class="h-5 w-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.5 7h13L17 13M7 13l-4-8m0 0h16m-4 0v0" />
+        </svg>
+        <span class="ml-1">{{ carritoCantidad }}</span>
+      </a>
+
+      <div *ngIf="carritoMenuOpen" class="absolute right-0 mt-2 z-50 bg-white shadow-lg rounded p-4">
+        <app-carrito></app-carrito>
+      </div>
+    </div>
+
+    <!-- Login / Perfil -->
+    <a *ngIf="!isLoggedIn()" routerLink="/login"
+      class="text-gray-700 hover:text-blue-600 hover:font-bold transition mt-2">
+      Login
+    </a>
     </nav>
   </div>
 </header>

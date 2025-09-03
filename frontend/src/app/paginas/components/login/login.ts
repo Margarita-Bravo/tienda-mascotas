@@ -11,7 +11,7 @@ import { Router, RouterLink, RouterModule } from '@angular/router';
   styleUrl: './login.css'
 })
 export class Login {
-   email: string = '';
+  email: string = '';
   password: string = '';
 
   constructor(private router: Router) {}

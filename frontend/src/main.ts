@@ -10,6 +10,7 @@ import { Pago } from './app/paginas/components/pago/pago';
 import { Veterinaria } from './app/paginas/components/veterinaria/veterinaria';
 import { Aseo } from './app/paginas/components/aseo/aseo';
 import { Adopcion } from './app/paginas/components/adopcion/adopcion';
+import { Contacto } from './app/paginas/components/contacto/contacto';
 
 
 bootstrapApplication(App, {
@@ -25,6 +26,7 @@ bootstrapApplication(App, {
         { path: 'veterinaria', component: Veterinaria },
         { path: 'aseo', component: Aseo },
         { path: 'adopcion', component: Adopcion },
+        { path: 'contacto', component: Contacto },
       ],
       withEnabledBlockingInitialNavigation(),
       withInMemoryScrolling({
