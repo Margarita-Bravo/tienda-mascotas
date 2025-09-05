@@ -7,7 +7,7 @@
         <img src="assets/logo.png" alt="Logo" class="h-8 w-8">
         <h2 class="text-2xl font-bold text-white">Narices Frias</h2>
         <p class="mt-2 text-sm">
-          Proyecto hecho con Angular + Tailwind 🚀, desarrollado por Margarita Bravo © 2024/2025 para ISPC
+          Proyecto hecho con Angular + Tailwind 🚀, <br> desarrollado por Margarita Bravo © 2024/2025 para ISPC
         </p>
       </div>
 
@@ -15,8 +15,9 @@
       <div>
         <h3 class="text-lg font-semibold text-white">Enlaces</h3>
         <ul class="mt-2 space-y-2">
-          <li><a href="" class="hover:text-blue-400 transition">Inicio</a></li>
-          <!-- <li><a href="/productos" class="hover:text-blue-400 transition">Productos</a></li> -->
+          <li><a routerLink="" class="hover:text-blue-400 transition">Inicio</a></li>
+          <li><a routerLink="/" fragment="productos" class="hover:text-blue-400 transition">Productos</a></li> 
+          <li><a routerLink="/" fragment="servicios" class="hover:text-blue-400 transition">Servicios</a></li> 
           <li><a routerLink="/contacto" class="hover:text-blue-400 transition">Contacto</a></li>
         </ul>
       </div>

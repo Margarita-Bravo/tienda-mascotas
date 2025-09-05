@@ -12,7 +12,12 @@ import { RouterModule } from '@angular/router';
 })
 export class Chat {
   chatOpen = false;
-  messages: { from: string, text: string }[] = [];
+  
+  messages: { from: string, text?: string, image?: string }[] = [
+  { from: 'bot', text: '¡Hola! 🐶 Bienvenido al chat de soporte 💬 de Narices Frías!'},
+  { from: 'bot', image: '/assets/felices-los-cuatro.png' } 
+];
+
   newMessage = '';
 
   toggleChat() {

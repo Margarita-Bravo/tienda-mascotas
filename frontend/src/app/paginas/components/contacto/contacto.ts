@@ -15,7 +15,8 @@ export class Contacto {
   email: string = '';
   nombre: string = '';
   telefono: string = '';
-  mensaje: string = '';
+  mensaje:string='';
+  mensajeEnviado=false;
 
    constructor(private router: Router) {}
 
@@ -26,7 +27,16 @@ export class Contacto {
     mensaje:'',
   };
 
-   onSubmitContacto(){
-
+   onSubmitContacto(form:any){
+    if (form.valid) {
+    
+      console.log("Datos enviados:", this.contacto);
+      this.mensajeEnviado=true;
+      form.resetForm();
    }
+  }
+
+   cerrarModal() {
+    this.mensajeEnviado = false;
+}
 }

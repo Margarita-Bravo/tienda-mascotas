@@ -23,7 +23,7 @@ import { routes } from './app.routes';
       <app-header></app-header>
       
       <!-- Contenido principal -->
-      <main class="flex-grow pt-20">
+      <main class="flex-grow pt-15">
         <!-- <app-home></app-home> -->
          <router-outlet></router-outlet>
       </main>

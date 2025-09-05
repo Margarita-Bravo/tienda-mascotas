@@ -11,13 +11,23 @@
     </div>
 
     <div class="flex-1 p-3 overflow-y-auto">
-      <div *ngFor="let msg of messages" class="mb-2">
-        <div [ngClass]="msg.from === 'user' ? 'text-right' : 'text-left'">
-          <span class="inline-block bg-gray-100 p-2 rounded-lg">
-            {{ msg.text }}
-          </span>
-        </div>
-      </div>
+
+     <div *ngFor="let msg of messages" class="mb-2">
+  <div [ngClass]="msg.from === 'user' ? 'text-right' : 'text-left'">
+    <!-- Mensaje de texto -->
+    <span *ngIf="msg.text" class="inline-block bg-gray-100 p-2 rounded-lg">
+      {{ msg.text }}
+    </span>
+
+    <!-- Mensaje de imagen -->
+    <img *ngIf="msg.image" 
+         [src]="msg.image" 
+         alt="Imagen del bot" 
+         class="inline-block w-16 h-16 rounded-full shadow-md ml-2">
+  </div>
+</div>
+
+      
     </div>
 
     <form (submit)="sendMessage()" class="p-3 flex gap-2">

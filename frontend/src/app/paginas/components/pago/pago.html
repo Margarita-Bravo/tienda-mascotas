@@ -1,7 +1,7 @@
 <div class="max-w-lg mx-auto bg-white rounded-lg shadow-lg p-6 mt-6">
   <h2 class="text-2xl font-bold mb-4 text-center">Finalizar Compra</h2>
 
-  <!-- Total -->
+  <!-- total -->
   <p class="text-lg font-semibold mb-6 text-center">
     Total a pagar: ${{ totalCompra }}
   </p>
@@ -19,7 +19,7 @@
       class="w-full mb-3 px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-400 focus:outline-none"/>
   </div>
 
-  <!-- DIRECCIÓN -->
+  <!-- DIRE -->
   <div class="mb-6">
     <h3 class="text-lg font-semibold mb-3">Dirección de envío</h3>
     <input [(ngModel)]="form.direccion" type="text" placeholder="Calle y número"
@@ -32,7 +32,7 @@
       class="w-full mb-3 px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-400 focus:outline-none"/>
   </div>
 
-  <!-- ENVÍO O RETIRO -->
+  <!-- ENViO O RETIRO -->
   <div class="mb-6">
     <h3 class="text-lg font-semibold mb-3">Entrega</h3>
     <div class="flex gap-4">
@@ -47,7 +47,7 @@
     </div>
   </div>
 
-  <!-- MÉTODO DE PAGO -->
+  <!-- metodo de pago -->
   <h3 class="text-lg font-semibold mb-3">Método de pago</h3>
   <div class="flex justify-center gap-4 mb-6">
     <button (click)="seleccionarMetodo('tarjeta')" 
