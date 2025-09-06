@@ -1,22 +1,18 @@
 import { Component, signal } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { Header } from './shared/components/header/header';
 import { Footer } from "./shared/components/footer/footer";
 import { Home } from './paginas/components/home/home';
 import { Alimentos } from './paginas/components/alimentos/alimentos';
-import { routes } from './app.routes';
 
+import { RouterModule } from '@angular/router';
 
+import { CommonModule } from '@angular/common';
+import { Header } from './shared/components/header/header';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  // imports: [ Header, Footer,Home],,
-   imports: [Header, 
-    Footer, 
-    RouterModule],
-  // templateUrl: './app.html',RouterModule.forRoot(routes)
+  imports: [Header, Footer, RouterModule,CommonModule],
   styleUrl: './app.css',
   template: `
     <div class="flex flex-col min-h-screen">

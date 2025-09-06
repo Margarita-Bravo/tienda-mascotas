@@ -1,5 +1,5 @@
 <section class="relative h-[90vh] flex items-center justify-center bg-gradient-to-r from-amber-300 to-orange-500">
-  <img src="/assets/los-cuatro.png" alt="Mascotas" class="max-h-full max-w-full object-contain" />
+  <img src="assets/los-cuatro.png" alt="Mascotas" class="max-h-full max-w-full object-contain" />
 
   <div class="absolute z-10 text-center px-6">
     <h1 class="text-4xl md:text-6xl font-bold text-white mb-4">
@@ -20,6 +20,7 @@
 
 
 
+
 <section id="productos" class="py-12 bg-gray-100">
   <div class="container mx-auto px-6">
     <h2 class="text-3xl font-bold text-center mb-12">Nuestros Productos</h2>
@@ -27,7 +28,7 @@
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <!-- card de alimentos -->
       <div class="relative h-64 rounded-lg overflow-hidden shadow-lg group">
-        <img src="/assets/hamster-comiendo.png" alt="Alimentos"
+        <img src="assets/hamster-comiendo.png" alt="Alimentos"
           class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
         <div
           class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/40 to-transparent flex flex-col items-center justify-center text-center text-white p-4">
@@ -43,7 +44,7 @@
 
       <!-- card de juguetes -->
       <div class="relative h-64 rounded-lg overflow-hidden shadow-lg group">
-        <img src="/assets/gato-juego.png" alt="Juguetes"
+        <img src="assets/gato-juego.png" alt="Juguetes"
           class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
         <div
           class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/40 to-transparent flex flex-col items-center justify-center text-center text-white p-4">
@@ -59,7 +60,7 @@
 
       <!-- card de accesorios -->
       <div class="relative h-64 rounded-lg overflow-hidden shadow-lg group">
-        <img src="/assets/tor-sombrero.png" alt="Accesorios"
+        <img src="assets/tor-sombrero.png" alt="Accesorios"
           class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
         <div
           class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/40 to-transparent flex flex-col items-center justify-center text-center text-white p-4">
@@ -83,7 +84,7 @@
 <section class="w-full flex items-center justify-center py-12 md:py-24">
   <div class="relative w-full">
     
-    <img src="/assets/fila.png" alt="Conciencia animal" class="w-full h-auto mx-auto object-contain rounded-2xl shadow-xl">
+    <img src="assets/fila.png" alt="Conciencia animal" class="w-full h-auto mx-auto object-contain rounded-2xl shadow-xl">
 
    
     <div class="absolute inset-0 bg-black/40 rounded-2xl"></div>
@@ -117,7 +118,7 @@
 
 
       <div class="relative rounded-lg overflow-hidden shadow-lg group aspect-w-4 aspect-h-3">
-        <img src="/assets/servicios/ve.png" alt="Veterinaria"
+        <img src="assets/servicios/ve.png" alt="Veterinaria"
           class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
         <div
           class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/40 to-transparent flex flex-col items-center justify-center text-center text-white p-4">
@@ -137,7 +138,7 @@
       
       <!-- Baño -->
       <div class="relative rounded-lg overflow-hidden shadow-lg group aspect-w-4 aspect-h-3">
-        <img src="/assets/servicios/pulgo.png" alt="Baño y Aseo"
+        <img src="assets/servicios/pulgo.png" alt="Baño y Aseo"
           class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
         <div
           class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/40 to-transparent flex flex-col items-center justify-center text-center text-white p-4">
@@ -158,7 +159,7 @@
 
       <!-- Adopciones -->
       <div class="relative rounded-lg overflow-hidden shadow-lg group aspect-w-4 aspect-h-3">
-        <img src="/assets/servicios/adopta.png" alt="Adopciones"
+        <img src="assets/servicios/adopta.png" alt="Adopciones"
           class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
         <div
           class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/40 to-transparent flex flex-col items-center justify-center text-center text-white p-4">
@@ -178,6 +179,48 @@
 <!-- fin seccion servicios -->
 
 
+
+<!-- banner primera compra -->
+<section class="py-12 bg-gradient-to-r from-[#80E1BA] via-[#45D1A0] to-[#48CEA8] text-white ">
+  <div class="container mx-auto px-6 text-center">
+    <h2 class="text-2xl md:text-3xl font-bold mb-4">
+      ¡Tu primera compra tiene 10% de descuento! 🎉
+    </h2>
+    <p class="mb-6">
+      Completá los datos para recibir tu cupón exclusivo.
+    </p>
+
+    <form (ngSubmit)="enviarCupon()" #cuponForm="ngForm" class="flex flex-col md:flex-row gap-4 justify-center items-center">
+
+     
+      <input type="email" name="email" [(ngModel)]="cupon.email" placeholder="Tu email"
+        class="p-2 rounded-xl border border-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-white" required>
+
+     
+      <input type="text" name="nombreMascota" [(ngModel)]="cupon.nombreMascota" placeholder="Nombre de tu mascota"
+        class="p-2 rounded-xl border border-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-white" required>
+
+      
+      <select name="tipoMascota" [(ngModel)]="cupon.tipoMascota"
+        class="p-2 rounded-xl border border-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-white" required>
+        <option value="" disabled selected>Tipo de mascota</option>
+        <option value="perro">Perro</option>
+        <option value="gato">Gato</option>
+        <option value="roedor">Roedor</option>
+        <option value="ave">Ave</option>
+        <option value="reptil">Reptil</option>
+        <option value="otro">Otro</option>
+      </select>
+
+      
+      <button type="submit"
+        class="px-6 py-2 rounded-xl font-bold hover:opacity-90 transition bg-white text-[#45D1A0]">
+        Pedir Cupón
+      </button>
+    </form>
+  </div>
+</section>
+
 <!-- Carrusel -->
 <section class="py-12 bg-white">
   <div class="w-full overflow-hidden">
@@ -185,25 +228,54 @@
      
       <div class="flex animate-scroll space-x-12">
       
-        <img src="/assets/carrusel/car4.png" alt="Visa" class="h-100 md:h-100 object-contain">
-        <img src="/assets/carrusel/ca3.png" alt="MasterCard" class="h-100 md:h-100 object-contain">
-        <img src="/assets/carrusel/ca6.png" alt="OCA" class="h-100 md:h-100 object-contain">
-        <img src="/assets/carrusel/car5.png" alt="Amex" class="h-100 md:h-100 object-contain">
-        <img src="/assets/carrusel/ca2.png" alt="MercadoPago" class="h-100 md:h-100 object-contain">
-        <img src="/assets/carrusel/ca1.png" alt="OCA" class="h-100 md:h-100 object-contain">
+        <img src="assets/carrusel/car4.png" alt="Visa" class="h-100 md:h-100 object-contain">
+        <img src="assets/carrusel/ca3.png" alt="MasterCard" class="h-100 md:h-100 object-contain">
+        <img src="assets/carrusel/ca6.png" alt="OCA" class="h-100 md:h-100 object-contain">
+        <img src="assets/carrusel/car5.png" alt="Amex" class="h-100 md:h-100 object-contain">
+        <img src="assets/carrusel/ca2.png" alt="MercadoPago" class="h-100 md:h-100 object-contain">
+        <img src="assets/carrusel/ca1.png" alt="OCA" class="h-100 md:h-100 object-contain">
         
 
-        <img src="/assets/carrusel/car4.png" alt="Visa" class="h-100 md:h-100 object-contain">
-        <img src="/assets/carrusel/ca3.png" alt="MasterCard" class="h-100 md:h-100 object-contain">
-        <img src="/assets/carrusel/ca6.png" alt="OCA" class="h-100 md:h-100 object-contain">
-        <img src="/assets/carrusel/car5.png" alt="Amex" class="h-100 md:h-100 object-contain">
-        <img src="/assets/carrusel/ca2.png" alt="MercadoPago" class="h-100 md:h-100 object-contain">
-        <img src="/assets/carrusel/ca1.png" alt="OCA" class="h-100 md:h-100 object-contain">
+        <img src="assets/carrusel/car4.png" alt="Visa" class="h-100 md:h-100 object-contain">
+        <img src="assets/carrusel/ca3.png" alt="MasterCard" class="h-100 md:h-100 object-contain">
+        <img src="assets/carrusel/ca6.png" alt="OCA" class="h-100 md:h-100 object-contain">
+        <img src="assets/carrusel/car5.png" alt="Amex" class="h-100 md:h-100 object-contain">
+        <img src="assets/carrusel/ca2.png" alt="MercadoPago" class="h-100 md:h-100 object-contain">
+        <img src="assets/carrusel/ca1.png" alt="OCA" class="h-100 md:h-100 object-contain">
       </div>
     </div>
   </div>
 </section>
 <!-- fin carrusel -->
+
+<!-- Sección Métodos de Pago -->
+<section class="py-12 bg-gray-50">
+  <div class="container mx-auto px-6 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6">Métodos de Pago</h2>
+    <p class="text-gray-600 mb-8">
+      Pagá de manera rápida y segura con los métodos que prefieras.
+    </p>
+
+    <div class="flex flex-wrap justify-center items-center gap-6">
+      <!-- Visa -->
+      <img src="assets/metodo/visa.png" alt="Visa" class="h-12 md:h-16 object-contain">
+      <!-- Mastercard -->
+      <img src="assets/metodo/master.png" alt="Mastercard" class="h-12 md:h-16 object-contain">
+      <!-- Mercado Pago -->
+      <img src="assets/metodo/mercado.png" alt="Mercado Pago" class="h-12 md:h-16 object-contain">
+      <!-- Cuenta DNI -->
+      <img src="assets/metodo/dni.png" alt="Cuenta DNI" class="h-12 md:h-16 object-contain">
+      <!-- Otros métodos -->
+      <img src="assets/metodo/uala.png" alt="Uala" class="h-12 md:h-16 object-contain">
+      <img src="assets/metodo/pago.png" alt="Pago Fácil" class="h-12 md:h-16 object-contain">
+    </div>
+  </div>
+</section>
+
+
+
+
+
 
 
 <!-- susbcripcion -->

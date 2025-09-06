@@ -1,7 +1,9 @@
+
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+
 
 @Component({
   selector: 'app-chat',
@@ -15,7 +17,7 @@ export class Chat {
   
   messages: { from: string, text?: string, image?: string }[] = [
   { from: 'bot', text: '¡Hola! 🐶 Bienvenido al chat de soporte 💬 de Narices Frías!'},
-  { from: 'bot', image: '/assets/felices-los-cuatro.png' } 
+  { from: 'bot', image: 'assets/felices-los-cuatro.png' } 
 ];
 
   newMessage = '';
